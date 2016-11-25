@@ -43,8 +43,8 @@ Also, all examples use the [bigbang](https://github.com/karayabin/universe-snaps
 
 Simplest example
 ===============================================
-form-simplest.png
-success-msg.png
+[![form-simplest.png](https://s19.postimg.org/l0tjmg0df/form_simplest.png)](https://postimg.org/image/6hmel178f/)
+[![success-msg.png](https://s19.postimg.org/ih2i63277/success_msg.png)](https://postimg.org/image/yfb7w7wf3/)
 
 
 ```php
@@ -73,7 +73,7 @@ $form->display();
 
 Adding constraints
 ===============================================
-required.png
+[![required.png](https://s19.postimg.org/5bmzzz8bn/required.png)](https://postimg.org/image/5bmzzz8bj/)
 
 
 ```php
@@ -107,7 +107,7 @@ $form->display();
 Moving constraints messages to the top
 ===============================================
 
-required-top.png
+[![required-top.png](https://s19.postimg.org/vvazodjhf/required_top.png)](https://postimg.org/image/f7jhlvopr/)
 
 
 You can choose whether you want to put the constraints error messages at the control level (default), or at the 
@@ -142,7 +142,7 @@ $form->display();
 
 Adding multiple constraints
 ===============================================
-multiple-constraints.png
+[![multiple-constraints.png](https://s19.postimg.org/zcd1rcijn/multiple_constraints.png)](https://postimg.org/image/69yroiw9r/)
 
 
 
@@ -175,7 +175,7 @@ $form->display();
 
 Displaying only the first constraint error message
 ===============================================
-multiple-constraints-first-only.png
+[![multiple-constraints-first-only.png](https://s19.postimg.org/up6zpkv6r/multiple_constraints_first_only.png)](https://postimg.org/image/jcue7smhr/)
 
 
 
@@ -214,7 +214,7 @@ $form->display();
 
 Using different form types
 ===============================================
-form-types.png
+[![form-types.png](https://s19.postimg.org/olpf5o4wz/form_types.png)](https://postimg.org/image/si2r1npwf/)
 
 
 The code below showcases all the available control types as of today. 
@@ -269,7 +269,8 @@ $form->display();
 
 Using labels
 ===============================================
-labels.png
+[![labels.png](https://s19.postimg.org/wfq0r2cpv/labels.png)](https://postimg.org/image/damrhay1r/)
+
 
 
 Use the labels array to embellish the labels in your form. 
@@ -327,7 +328,9 @@ $form->display();
 
 Customizing form messages
 ===============================================
-customize-messages.png
+
+
+[![customize-messages.png](https://s19.postimg.org/3kzdkr1er/customize_messages.png)](https://postimg.org/image/p7ee1rzz3/)
 
 
 The QuickForm has its own set of messages.
@@ -373,7 +376,7 @@ $form->display();
 
 Using default values
 ===============================================
-default-values.png
+[![default-values.png](https://s19.postimg.org/t51nr6msj/default_values.png)](https://postimg.org/image/5e2a92mlb/)
 
 
 Default values are set when the form is first display.
@@ -510,7 +513,7 @@ $form->display();
 
 Translate validation error messages
 ===============================================
-translate-constraints.png
+[![translate-constraints.png](https://s19.postimg.org/t5694xc6b/translate_constraints.png)](https://postimg.org/image/cu658lzof/)
 
 
 QuickForm is multi-language friendly.
@@ -551,7 +554,7 @@ $form->display();
 
 Doing something useful with the posted data
 ===============================================
-on-form-posted.png
+[![on-form-posted.png](https://s19.postimg.org/3twyaoe77/on_form_posted.png)](https://postimg.org/image/4jfqn1eqn/)
 
 
 You treat the form's posted data using the formTreatmentFunc callback.
