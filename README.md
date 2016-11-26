@@ -15,6 +15,7 @@ Table of contents
 - [Simplest example](#simplest-example)
 - [Removing the title](#removing-the-title)
 - [Display a header](#display-a-header)
+- [Using fieldsets](#using-fieldsets)
 - [Adding constraints](#adding-constraints)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
@@ -131,6 +132,39 @@ $form->header = "We would like to know more about you";
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 
+
+$form->play();
+```
+
+
+
+Using fieldsets
+===============================================
+[![fieldsets.png](https://s19.postimg.org/vcf36l6ub/fieldsets.png)](https://postimg.org/image/qdrks231b/)
+
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+$form->addControl('pet_first_name')->type('text');
+$form->addControl('pet_last_name')->type('text');
+
+
+$form->addFieldset('Your pet info', ['pet_first_name', 'pet_last_name']);
 
 $form->play();
 ```
@@ -680,6 +714,10 @@ Who uses QuickForm
  
 History Log
 ------------------
+    
+- 3.1.0 -- 2016-11-26
+
+    - added fieldsets 
     
 - 3.0.0 -- 2016-11-26
 

@@ -26,6 +26,7 @@ class QuickForm
 
     private $controls;
     private $controlFactories;
+    private $fieldsets;
 
 
     public function __construct()
@@ -35,6 +36,7 @@ class QuickForm
         $this->defaultValues = [];
         $this->finalValues = [];
         $this->controlFactories = [];
+        $this->fieldsets = [];
         $this->controlErrorLocation = "local";
         $this->title = null;
         $this->header = null;
@@ -74,6 +76,11 @@ class QuickForm
         return $this;
     }
 
+    public function addFieldset($label, array $controlNames)
+    {
+        $this->fieldsets[$label] = $controlNames;
+        return $this;
+    }
 
     public function play()
     {
@@ -144,7 +151,7 @@ class QuickForm
 
             // submit
             if (false === $atLeastOneControlError) {
-                $formTreatmentMsg = "";
+                $formTreatmentMsg = null;
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
             }
 
@@ -222,30 +229,50 @@ class QuickForm
             <?php if (true === $this->displayForm): ?>
                 <form class="form" method="post" action="" id="<?php echo $formId; ?>">
                     <?php
-                    foreach ($this->controls as $column => $c) {
-                        ?>
-                        <div class="row">
-                            <span class="label"><?php echo ucfirst($this->label($column, $c)); ?></span>
-                            <div class="control">
-                                <?php $this->displayControl($column, $c); ?>
-                            </div>
-                        </div>
 
-                        <?php
-                        if ('local' === $this->controlErrorLocation):
-                            $errors = $c->getErrorMessages();
-                            if (count($errors) > 0):
-                                ?>
-                                <div class="row error">
-                                    <span class="label"></span>
-                                    <div>
-                                        <?php foreach ($errors as $msg): ?>
-                                            <p><?php echo $msg; ?></p>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
+
+                    $triggers = [];
+                    foreach ($this->fieldsets as $label => $controlNames) {
+                        if (array_key_exists(0, $controlNames)) {
+                            $triggers[$controlNames[0]] = $label;
+                        }
+                    }
+
+                    $fieldsetsAndControls = [];
+                    $used = [];
+                    foreach ($this->controls as $name => $c) {
+                        if (array_key_exists($name, $triggers)) {
+                            $label = $triggers[$name];
+                            $_controls = [];
+                            foreach ($this->fieldsets[$label] as $controlName) {
+                                $used[] = $controlName;
+                                $_controls[$controlName] = $this->controls[$controlName];
+                            }
+                            $fieldsetsAndControls[$label] = $_controls;
+
+                        } else {
+                            if (false === in_array($name, $used, true)) {
+                                $fieldsetsAndControls[$name] = $c;
+                            }
+                        }
+                    }
+
+
+                    foreach ($fieldsetsAndControls as $name => $c) {
+
+                        if (is_array($c)):
+                            ?>
+                            <fieldset>
+                                <legend><?php echo $name; ?></legend>
                                 <?php
-                            endif;
+                                foreach ($c as $cname => $c2) {
+                                    $this->displayControlBundle($cname, $c2);
+                                }
+                                ?>
+                            </fieldset>
+                            <?php
+                        else:
+                            $this->displayControlBundle($name, $c);
                         endif;
                     }
                     ?>
@@ -294,6 +321,33 @@ class QuickForm
     //--------------------------------------------
     //
     //--------------------------------------------
+    private function displayControlBundle($name, QuickFormControl $c)
+    {
+        ?>
+        <div class="row">
+            <span class="label"><?php echo ucfirst($this->label($name, $c)); ?></span>
+            <div class="control">
+                <?php $this->displayControl($name, $c); ?>
+            </div>
+        </div>
+        <?php
+        if ('local' === $this->controlErrorLocation):
+            $errors = $c->getErrorMessages();
+            if (count($errors) > 0):
+                ?>
+                <div class="row error">
+                    <span class="label"></span>
+                    <div>
+                        <?php foreach ($errors as $msg): ?>
+                            <p><?php echo $msg; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php
+            endif;
+        endif;
+    }
+
     private function displayControl($name, QuickFormControl $c)
     {
         $wasHandled = false;
