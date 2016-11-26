@@ -13,6 +13,8 @@ Table of contents
 
 - [README first](#readme-first)
 - [Simplest example](#simplest-example)
+- [Removing the title](#removing-the-title)
+- [Display a header](#display-a-header)
 - [Adding constraints](#adding-constraints)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
@@ -96,7 +98,7 @@ $form->display();
 ```
 
 
-display a header
+Display a header
 ===============================================
 [![header.png](https://s19.postimg.org/vrlrlv3dv/header.png)](https://postimg.org/image/uck6x52an/)
 
