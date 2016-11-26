@@ -357,7 +357,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![form-types.png](https://s19.postimg.org/nbw74d0ir/form_types.png)](https://postimg.org/image/gy7413vmn/)
+[![types.png](https://s19.postimg.org/yoddzvylf/types.png)](https://postimg.org/image/oeaz0n8pr/)
 
 The code below showcases all the available control types as of today. 
 
@@ -393,8 +393,6 @@ $form->controlErrorLocation = 'top';
 $form->allowMultipleErrorsPerControl = false;
 
 
-
-
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 $form->addControl('country')->type('selectByRequest', "select id, nom from pays");
@@ -402,6 +400,7 @@ $form->addControl('favorite_sport')->type('select', ['judo', 'kendo', 'sudo']);
 $form->addControl('birthdate')->type('date3');
 $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
+$form->addControl('favorite_towns')->type('selectMultiple', ['Paris', 'New-York', 'London', 'Beijing']);
 
 
 $form->play();
@@ -754,8 +753,19 @@ Who uses QuickForm
 
 
  
+Dependencies
+-----------------
+- [Bat 1.32](https://github.com/lingtalfi/Bat) 
+- [QuickPdo 1.21.0](https://github.com/lingtalfi/QuickPdo) 
+ 
+ 
+ 
 History Log
 ------------------
+    
+- 3.4.0 -- 2016-11-26
+
+    - added selectMultiple control type
     
 - 3.3.0 -- 2016-11-26
 

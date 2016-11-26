@@ -4,7 +4,6 @@
 namespace QuickForm;
 
 
-
 class QuickFormValidator
 {
 
@@ -18,7 +17,10 @@ class QuickFormValidator
                     }
                     return true;
                 } else {
-                    $this->error("not implemented yet");
+                    if (count($subject) > 0) {
+                        return true;
+                    }
+                    return "this field cannot be empty";
                 }
                 break;
 

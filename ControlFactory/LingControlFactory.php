@@ -2,6 +2,7 @@
 
 namespace QuickForm\ControlFactory;
 
+use Bat\StringTool;
 use QuickForm\QuickFormControl;
 use QuickPdo\QuickPdo;
 
@@ -14,13 +15,13 @@ class LingControlFactory implements ControlFactoryInterface
         $type = $c->getType();
         $args = $c->getTypeArgs();
         $placeholder = null;
-        if(array_key_exists(0, $args)){
-            if(is_string($args[0])){
+        if (array_key_exists(0, $args)) {
+            if (is_string($args[0])) {
                 $placeholder = $args[0];
             }
         }
 
-        $pl = (null!==$placeholder)?' placeholder="'. htmlspecialchars($placeholder) .'"':'';
+        $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
 
         switch ($type) {
             case 'text':
@@ -57,12 +58,23 @@ class LingControlFactory implements ControlFactoryInterface
                 <?php
                 break;
             case 'select':
+            case 'selectMultiple':
                 $args = $c->getTypeArgs();
                 $items = $args[0];
                 $value = $c->getValue();
+                $htmlArgs = (array_key_exists(1, $args)) ? $args[1] : [];
+
+                $nonScalar = '';
+                if ('selectMultiple' === $type) {
+                    $nonScalar = '[]';
+                    $htmlArgs[] = 'multiple';
+                }
+
+
                 ?>
                 <select
-                    name="<?php echo htmlspecialchars($name); ?>"
+                    name="<?php echo htmlspecialchars($name) . $nonScalar; ?>"
+                    <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                     <?php foreach ($items as $k => $v):
                         $sel = ($value == $k) ? ' selected="selected"' : '';
