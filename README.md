@@ -281,8 +281,7 @@ $form->display();
 
 Using different form types
 ===============================================
-[![form-types.png](https://s19.postimg.org/olpf5o4wz/form_types.png)](https://postimg.org/image/si2r1npwf/)
-
+[![form-types.png](https://s19.postimg.org/nbw74d0ir/form_types.png)](https://postimg.org/image/gy7413vmn/)
 
 The code below showcases all the available control types as of today. 
 
@@ -323,6 +322,7 @@ $form->allowMultipleErrorsPerControl = false;
 $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 $form->addControl('country')->type('selectByRequest', "select id, nom from pays");
+$form->addControl('favorite_sport')->type('select', ['judo', 'kendo', 'sudo']);
 $form->addControl('birthdate')->type('date3');
 $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
@@ -680,6 +680,12 @@ Who uses QuickForm
  
 History Log
 ------------------
+    
+- 2.0.0 -- 2016-11-26
+
+    - changed ControlFactoryInterface.displayControl's return value
+    - added select 
+
     
 - 1.1.0 -- 2016-11-26
 

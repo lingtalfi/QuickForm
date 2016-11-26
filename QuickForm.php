@@ -296,10 +296,15 @@ class QuickForm
     //--------------------------------------------
     private function displayControl($name, QuickFormControl $c)
     {
+        $wasHandled = false;
         foreach ($this->controlFactories as $f) {
-            if (false !== $f->displayControl($name, $c)) {
+            if (true === $f->displayControl($name, $c)) {
+                $wasHandled = true;
                 break;
             }
+        }
+        if (false === $wasHandled) {
+            throw new \Exception("Was not able to handle control of type " . $c->getType() . " (name=$name)");
         }
     }
 
