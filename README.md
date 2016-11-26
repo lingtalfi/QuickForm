@@ -26,6 +26,7 @@ Table of contents
 - [Forcing values with finalValues](#forcing-values-with-finalvalues)
 - [Translate validation error messages](#translate-validation-error-messages)
 - [Doing something useful with the posted data](#doing-something-useful-with-the-posted-data)
+- [Who uses QuickForm](#who-uses-quickform)
 - [History Log](#history-log)
 
 
@@ -33,6 +34,9 @@ Table of contents
 
 README first
 ---------------
+
+
+QuickForm is part of the [universe](https://github.com/karayabin/universe-snapshot).
 
 All the examples below assume that quickform.css is properly linked (find it here: link to [quickform.css](https://github.com/lingtalfi/QuickForm/blob/master/styles/quickform.css)).
 
@@ -664,6 +668,13 @@ $form->display();
 ```
 
 
+
+
+ 
+Who uses QuickForm
+------------------
+    
+- [nullos admin](https://github.com/lingtalfi/nullos-admin)
 
 
  
