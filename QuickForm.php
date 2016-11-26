@@ -75,7 +75,7 @@ class QuickForm
     }
 
 
-    public function display()
+    public function play()
     {
 
         if (0 === count($this->controlFactories)) {

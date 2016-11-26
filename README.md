@@ -71,7 +71,7 @@ $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -98,7 +98,7 @@ $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -132,7 +132,7 @@ $form->addControl('first_name')->type('text');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -162,7 +162,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -201,7 +201,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -234,7 +234,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -272,7 +272,7 @@ $form->addControl('first_name')->type('text')
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -328,7 +328,7 @@ $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -387,7 +387,7 @@ $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -433,7 +433,7 @@ $form->addControl('first_name')->type('text')->addConstraint('required');
 $form->addControl('last_name')->type('text');
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -487,7 +487,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -517,7 +517,7 @@ $form->addControl('last_name')->type('text')->value("Rabbit");
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -571,7 +571,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -612,7 +612,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -664,7 +664,7 @@ $form->addControl('last_name')->type('text');
 
 
 
-$form->display();
+$form->play();
 ```
 
 
@@ -681,6 +681,11 @@ Who uses QuickForm
 History Log
 ------------------
     
+- 3.0.0 -- 2016-11-26
+
+    - renamed display method to play 
+
+
 - 2.0.0 -- 2016-11-26
 
     - changed ControlFactoryInterface.displayControl's return value
