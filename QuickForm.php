@@ -233,10 +233,11 @@ class QuickForm
 
                     $triggers = [];
                     foreach ($this->fieldsets as $label => $controlNames) {
-                        if (array_key_exists(0, $controlNames)) {
-                            $triggers[$controlNames[0]] = $label;
+                        foreach ($controlNames as $name) {
+                            $triggers[$name] = $label;
                         }
                     }
+
 
                     $fieldsetsAndControls = [];
                     $used = [];
