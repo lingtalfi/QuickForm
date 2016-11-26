@@ -16,6 +16,7 @@ Table of contents
 - [Removing the title](#removing-the-title)
 - [Display a header](#display-a-header)
 - [Using fieldsets](#using-fieldsets)
+- [Adding placeholders](#adding-placeholders)
 - [Adding constraints](#adding-constraints)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
@@ -173,6 +174,39 @@ $form->addControl('pet_last_name')->type('text');
 
 
 $form->addFieldset('Your pet info', ['pet_first_name', 'pet_last_name']);
+
+$form->play();
+```
+
+
+
+Adding placeholders
+===============================================
+[![placeholders.png](https://s19.postimg.org/m5wsjb1lv/placeholders.png)](https://postimg.org/image/91r86m9jz/)
+
+
+Controls of type text accept placeholders.
+
+The example below show how to create such placeholders.
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->addControl('first_name')->type('text', 'Roger');
+$form->addControl('last_name')->type('text', 'Rabbit');
+
 
 $form->play();
 ```
@@ -723,6 +757,11 @@ Who uses QuickForm
 History Log
 ------------------
     
+- 3.2.0 -- 2016-11-26
+
+    - add placeholders
+
+
 - 3.1.1 -- 2016-11-26
 
     - fix fieldsets
