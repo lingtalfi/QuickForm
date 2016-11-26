@@ -69,6 +69,67 @@ $form->display();
 ```
 
 
+Removing the title
+===============================================
+[![no-title.png](https://s19.postimg.org/4v1sdjkkj/no_title.png)](https://postimg.org/image/bli9mz7q7/)
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+//$form->title = null;
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+
+
+$form->display();
+```
+
+
+display a header
+===============================================
+[![header.png](https://s19.postimg.org/vrlrlv3dv/header.png)](https://postimg.org/image/uck6x52an/)
+
+
+The header is displayed below the title.
+
+It helps adding information about the purpose of the form.
+
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->title = "Form";
+$form->header = "We would like to know more about you";
+$form->addControl('first_name')->type('text');
+$form->addControl('last_name')->type('text');
+
+
+$form->display();
+```
+
+
 
 
 Adding constraints
@@ -606,6 +667,11 @@ $form->display();
  
 History Log
 ------------------
+    
+- 1.1.0 -- 2016-11-26
+
+    - added header public property
+
     
 - 1.0.0 -- 2016-11-25
 
