@@ -29,7 +29,7 @@ class QuickForm
     private $controlFactories;
     private $fieldsets;
 
-    private static $count=0;
+    private static $count = 0;
 
     private $formPostedId;
 
@@ -106,7 +106,9 @@ class QuickForm
         // DEFAULT VALUES
         //--------------------------------------------
         foreach ($this->defaultValues as $k => $v) {
-            $this->controls[$k]->value($v);
+            if (array_key_exists($k, $this->controls)) {
+                $this->controls[$k]->value($v);
+            }
         }
 
 

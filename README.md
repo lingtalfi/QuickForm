@@ -763,6 +763,10 @@ Dependencies
 History Log
 ------------------
     
+- 3.4.1 -- 2016-11-27
+
+    - fix undefined index bug for QuickForm line 109
+    
 - 3.4.0 -- 2016-11-26
 
     - added selectMultiple control type
