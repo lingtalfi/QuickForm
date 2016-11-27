@@ -294,7 +294,7 @@ class LingControlFactory implements ControlFactoryInterface
                 $canHandle = false;
                 break;
         }
-        return $canHandle = true;
+        return $canHandle;
     }
 
 
