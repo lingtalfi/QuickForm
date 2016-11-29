@@ -769,6 +769,10 @@ Dependencies
 History Log
 ------------------
     
+- 3.6.1 -- 2016-11-29
+
+    - fix bug: QuickForm->defaultValues was overriding the posted values
+    
 - 3.6.0 -- 2016-11-29
 
     - add minChecked constraint in QuickFormValidator

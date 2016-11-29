@@ -103,16 +103,6 @@ class QuickForm
 
 
         //--------------------------------------------
-        // DEFAULT VALUES
-        //--------------------------------------------
-        foreach ($this->defaultValues as $k => $v) {
-            if (array_key_exists($k, $this->controls)) {
-                $this->controls[$k]->value($v);
-            }
-        }
-
-
-        //--------------------------------------------
         // FORM SUBMITTED
         //--------------------------------------------
         if (array_key_exists($this->formPostedId, $_POST)) {
@@ -163,6 +153,16 @@ class QuickForm
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
             }
 
+
+        } else {
+            //--------------------------------------------
+            // DEFAULT VALUES
+            //--------------------------------------------
+            foreach ($this->defaultValues as $k => $v) {
+                if (array_key_exists($k, $this->controls)) {
+                    $this->controls[$k]->value($v);
+                }
+            }
 
         }
 
