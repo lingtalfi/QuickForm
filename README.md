@@ -357,7 +357,8 @@ $form->play();
 
 Using different form types
 ===============================================
-[![types.png](https://s19.postimg.org/yoddzvylf/types.png)](https://postimg.org/image/oeaz0n8pr/)
+[![Screen Shot 2016-11-29 at 13.45.54.png](https://s19.postimg.org/yxtc8s4wz/Screen_Shot_2016_11_29_at_13_45_54.png)](https://postimg.org/image/l44zjqcbj/)
+
 
 The code below showcases all the available control types as of today. 
 
@@ -370,7 +371,6 @@ use QuickForm\QuickForm;
 use QuickPdo\QuickPdo;
 
 require "bigbang.php";
-
 
 
 
@@ -401,6 +401,12 @@ $form->addControl('birthdate')->type('date3');
 $form->addControl('begin_at')->type('date6');
 $form->addControl('biography')->type('message');
 $form->addControl('favorite_towns')->type('selectMultiple', ['Paris', 'New-York', 'London', 'Beijing']);
+$form->addControl('options')->type('checkboxList', [
+        'option1' => "Option 1",
+        'option2' => "Option 2",
+        'option3' => "Option 3",
+]);
+
 
 
 $form->play();
@@ -762,6 +768,10 @@ Dependencies
  
 History Log
 ------------------
+    
+- 3.5.0 -- 2016-11-29
+
+    - add checkboxList type
     
 - 3.4.2 -- 2016-11-27
 

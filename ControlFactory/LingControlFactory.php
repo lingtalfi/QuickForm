@@ -14,24 +14,49 @@ class LingControlFactory implements ControlFactoryInterface
         $canHandle = true;
         $type = $c->getType();
         $args = $c->getTypeArgs();
-        $placeholder = null;
-        if (array_key_exists(0, $args)) {
-            if (is_string($args[0])) {
-                $placeholder = $args[0];
-            }
-        }
-
-        $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
 
         switch ($type) {
             case 'text':
+            case 'hidden':
+                $placeholder = null;
+                if (array_key_exists(0, $args)) {
+                    if (is_string($args[0])) {
+                        $placeholder = $args[0];
+                    }
+                }
+
+                $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
+
                 ?>
                 <input
-                    type="text"
-                    name="<?php echo htmlspecialchars($name); ?>"
-                    value="<?php echo htmlspecialchars($c->getValue()); ?>"
+                        type="<?php echo $type; ?>"
+                        name="<?php echo htmlspecialchars($name); ?>"
+                        value="<?php echo htmlspecialchars($c->getValue()); ?>"
                     <?php echo $pl; ?>
                 >
+                <?php
+                break;
+            case 'checkboxList':
+                $args = $c->getTypeArgs();
+                $boxes = $args[0];
+                $v = $c->getValue(); // array of checked values|null
+                if (null === $v) {
+                    $v = [];
+                }
+                ?>
+                <?php foreach ($boxes as $value => $label):
+                $checked = (in_array($value, $v)) ? ' checked="checked"' : '';
+                ?>
+                <label class="checkbox-label">
+                    <input
+                            type="checkbox"
+                            name="<?php echo htmlspecialchars($name); ?>[]"
+                            value="<?php echo htmlspecialchars($value); ?>"
+                        <?php echo $checked; ?>
+                    >
+                    <?php echo $label; ?>
+                </label>
+            <?php endforeach; ?>
                 <?php
                 break;
             case 'selectByRequest':
@@ -46,7 +71,7 @@ class LingControlFactory implements ControlFactoryInterface
 
                 ?>
                 <select
-                    name="<?php echo htmlspecialchars($name); ?>"
+                        name="<?php echo htmlspecialchars($name); ?>"
                 >
                     <?php foreach ($items as $pk => $label):
                         $sel = ((int)$value === (int)$pk) ? ' selected="selected"' : '';
@@ -73,7 +98,7 @@ class LingControlFactory implements ControlFactoryInterface
 
                 ?>
                 <select
-                    name="<?php echo htmlspecialchars($name) . $nonScalar; ?>"
+                        name="<?php echo htmlspecialchars($name) . $nonScalar; ?>"
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                     <?php foreach ($items as $k => $v):
@@ -136,7 +161,7 @@ class LingControlFactory implements ControlFactoryInterface
                         $sel = ((int)($i + 1) === (int)$month) ? ' selected="selected"' : '';
                         ?>
                         <option <?php echo $sel; ?>
-                            value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
+                                value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
                     <?php endfor; ?>
                 </select>
                 <select class="autowidth _year _lastdate">
@@ -220,7 +245,7 @@ class LingControlFactory implements ControlFactoryInterface
                         $sel = ((int)($i + 1) === (int)$month) ? ' selected="selected"' : '';
                         ?>
                         <option <?php echo $sel; ?>
-                            value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
+                                value="<?php echo sprintf('%02s', $i + 1); ?>"><?php echo $months[$i]; ?></option>
                     <?php endfor; ?>
                 </select>
                 <select class="autowidth _year _lastdate">
@@ -286,7 +311,7 @@ class LingControlFactory implements ControlFactoryInterface
             case 'message':
                 ?>
                 <textarea
-                    name="<?php echo htmlspecialchars($name); ?>"
+                        name="<?php echo htmlspecialchars($name); ?>"
                 ><?php echo $c->getValue(); ?></textarea>
                 <?php
                 break;
