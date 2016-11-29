@@ -769,6 +769,10 @@ Dependencies
 History Log
 ------------------
     
+- 3.6.0 -- 2016-11-29
+
+    - add minChecked constraint in QuickFormValidator
+    
 - 3.5.0 -- 2016-11-29
 
     - add checkboxList type

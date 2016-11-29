@@ -38,6 +38,23 @@ class QuickFormValidator
                     $this->error("not implemented yet");
                 }
                 break;
+            case 'minChecked': // rulesArgs: [$minChecked]
+                if (null === $subject) { // no checkbox checked
+                    $subject = [];
+                }
+                if (is_array($subject)) {
+                    $count = count($subject);
+                    if ($count < $ruleArgs[0]) {
+                        return [
+                            "you must select at least {minChecked} option(s)",
+                            ['minChecked' => $ruleArgs[0]],
+                        ];
+                    }
+                    return true;
+                } else {
+                    $this->error("not implemented yet");
+                }
+                break;
             default:
                 $this->error('FormValidator: unknown rule ' . $ruleName);
                 break;
