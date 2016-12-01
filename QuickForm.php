@@ -5,6 +5,7 @@ namespace QuickForm;
 
 use QuickForm\ControlFactory\ControlFactoryInterface;
 use QuickForm\ControlFactory\LingControlFactory;
+use QuickForm\Tool\PhpFileExploder;
 use QuickPdo\QuickPdo;
 
 class QuickForm
@@ -24,6 +25,10 @@ class QuickForm
     public $displayNothing;
     public $messages;
     public $multipart; // bool=false, set this to true when your form contains an input type=file
+
+    // bool(default=true), security measure which throws an exception if an uploaded file is not uploaded via http
+    // http://php.net/manual/en/function.is-uploaded-file.php
+    public $stopIfFileIsNotUploaded;
 
 
     private $controls;
@@ -47,6 +52,7 @@ class QuickForm
         $this->header = null;
         $this->multipart = false;
         $this->allowMultipleErrorsPerControl = true;
+        $this->stopIfFileIsNotUploadedViaHttp = true;
         $this->displayForm = true;
         $this->displayNothing = false;
         $this->validationTranslateFunc = function ($v) {
@@ -110,13 +116,33 @@ class QuickForm
         if (array_key_exists($this->formPostedId, $_POST)) {
 
             unset($_POST[$this->formPostedId]);
-            $controlsNames = array_keys($this->controls);
-            $safeValues = array_intersect_key($_POST, array_flip($controlsNames));
 
+
+
+            //--------------------------------------------
+            // FORMATTED VALUES
+            //--------------------------------------------
+            // Formatted values are the one passed to the user's callback.
+            //
+            // we take all the controls, and add a value for each.
+            // if the value is not set (unchecked checkbox, not uploaded file, ?),
+            // we set it to null, so that it is seen by the validation process anyway
+            //
+            // - if it's a file (from $_FILES) and it is set by the user, we attach
+            //          an array of phpItems, as defined in QuickForm/Tool/PhpFileExploder.
+            //          This way, the files can also be subject to validation
+
+            $controlsNames = array_keys($this->controls);
             $formattedValues = [];
-            foreach ($safeValues as $k => $v) {
-                $formattedValues[$k] = $v;
-                $this->controls[$k]->value($v);
+            foreach ($controlsNames as $name) {
+                $v = null;
+                if (array_key_exists($name, $_POST)) {
+                    $v = $_POST[$name];
+                } elseif (array_key_exists($name, $_FILES)) {
+                    $v = PhpFileExploder::explode($_FILES[$name], $this->stopIfFileIsNotUploadedViaHttp);
+                }
+                $formattedValues[$name] = $v;
+                $this->controls[$name]->value($v);
             }
 
 

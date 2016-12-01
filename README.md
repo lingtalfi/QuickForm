@@ -807,6 +807,11 @@ Dependencies
 History Log
 ------------------
     
+- 3.9.0 -- 2016-12-01
+
+    - every added control now returns a value (null if not set) so that they are seen by the validation system 
+    - handling submit process now handles $_FILES so that they also can be validated with constraints
+    
 - 3.8.0 -- 2016-12-01
 
     - add file type
