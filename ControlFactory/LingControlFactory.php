@@ -44,30 +44,46 @@ class LingControlFactory implements ControlFactoryInterface
                 <input
                         type="file"
                         name="<?php echo htmlspecialchars($name) . $multiple; ?>"
-                        value="<?php echo htmlspecialchars($c->getValue()); ?>"
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                 <?php
                 break;
             case 'checkboxList':
-            case 'radioList':
                 $args = $c->getTypeArgs();
                 $boxes = $args[0];
                 $v = $c->getValue(); // array of checked values|null
                 if (null === $v) {
                     $v = [];
                 }
-
-                $tname = ('radioList' === $type) ? 'radio' : 'checkbox';
-
                 ?>
                 <?php foreach ($boxes as $value => $label):
                 $checked = (in_array($value, $v)) ? ' checked="checked"' : '';
                 ?>
-                <label class="<?php echo $tname; ?>-label">
+                <label class="checkbox-label">
                     <input
-                            type="<?php echo $tname; ?>"
+                            type="checkbox"
                             name="<?php echo htmlspecialchars($name); ?>[]"
+                            value="<?php echo htmlspecialchars($value); ?>"
+                        <?php echo $checked; ?>
+                    >
+                    <?php echo $label; ?>
+                </label>
+            <?php endforeach; ?>
+                <?php
+                break;
+            case 'radioList':
+                $args = $c->getTypeArgs();
+                $boxes = $args[0];
+                $v = $c->getValue(); // string|null
+
+                ?>
+                <?php foreach ($boxes as $value => $label):
+                $checked = ($v === $value) ? ' checked="checked"' : '';
+                ?>
+                <label class="radio-label">
+                    <input
+                            type="radio"
+                            name="<?php echo htmlspecialchars($name); ?>"
                             value="<?php echo htmlspecialchars($value); ?>"
                         <?php echo $checked; ?>
                     >
@@ -108,8 +124,11 @@ class LingControlFactory implements ControlFactoryInterface
 
                 $nonScalar = '';
                 if ('selectMultiple' === $type) {
-                    $nonScalar = '[]';
                     $htmlArgs[] = 'multiple';
+                }
+
+                if (in_array('multiple', $htmlArgs, true)) {
+                    $nonScalar = '[]';
                 }
 
 
@@ -119,11 +138,28 @@ class LingControlFactory implements ControlFactoryInterface
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                     <?php foreach ($items as $k => $v):
-                        $sel = ($value == $k) ? ' selected="selected"' : '';
-                        ?>
-                        <option
-                            <?php echo $sel; ?>value="<?php echo htmlspecialchars($k); ?>"><?php echo $v; ?></option>
-                    <?php endforeach; ?>
+
+                        if (is_array($v)):
+                            ?>
+                            <optgroup label="<?php echo htmlspecialchars($k); ?>">
+                                <?php foreach ($v as $_k => $_v):
+                                    $sel = ($value == $_k) ? ' selected="selected"' : '';
+                                    ?>
+                                    <option
+                                        <?php echo $sel; ?>value="<?php echo htmlspecialchars($_k); ?>"><?php echo $_v; ?></option>
+                                <?php endforeach; ?>
+                            </optgroup>
+                            <?php
+                        else:
+
+
+                            $sel = ($value == $k) ? ' selected="selected"' : '';
+                            ?>
+                            <option
+                                <?php echo $sel; ?>value="<?php echo htmlspecialchars($k); ?>"><?php echo $v; ?></option>
+                            <?php
+                        endif;
+                    endforeach; ?>
                 </select>
                 <?php
                 break;
