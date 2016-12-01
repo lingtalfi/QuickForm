@@ -357,7 +357,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![Screen Shot 2016-11-29 at 13.45.54.png](https://s19.postimg.org/yxtc8s4wz/Screen_Shot_2016_11_29_at_13_45_54.png)](https://postimg.org/image/l44zjqcbj/)
+[![Screen Shot 2016-12-01 at 13.22.13.png](https://s19.postimg.org/p09l7lzhf/Screen_Shot_2016_12_01_at_13_22_13.png)](https://postimg.org/image/ffpykqa5b/)
 
 
 The code below showcases all the available control types as of today. 
@@ -371,6 +371,7 @@ use QuickForm\QuickForm;
 use QuickPdo\QuickPdo;
 
 require "bigbang.php";
+
 
 
 
@@ -405,6 +406,11 @@ $form->addControl('options')->type('checkboxList', [
         'option1' => "Option 1",
         'option2' => "Option 2",
         'option3' => "Option 3",
+])->addConstraint('minChecked', 1);
+$form->addControl('favorite_meal')->type('radioList', [
+    'pizza' => "Pizza",
+    'bacon' => "Bacon",
+    'ice_cream' => "Ice cream",
 ]);
 
 
@@ -768,6 +774,10 @@ Dependencies
  
 History Log
 ------------------
+    
+- 3.7.0 -- 2016-12-01
+
+    - add radioList type
     
 - 3.6.1 -- 2016-11-29
 

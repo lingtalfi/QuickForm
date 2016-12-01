@@ -37,19 +37,23 @@ class LingControlFactory implements ControlFactoryInterface
                 <?php
                 break;
             case 'checkboxList':
+            case 'radioList':
                 $args = $c->getTypeArgs();
                 $boxes = $args[0];
                 $v = $c->getValue(); // array of checked values|null
                 if (null === $v) {
                     $v = [];
                 }
+
+                $tname = ('radioList' === $type) ? 'radio' : 'checkbox';
+
                 ?>
                 <?php foreach ($boxes as $value => $label):
                 $checked = (in_array($value, $v)) ? ' checked="checked"' : '';
                 ?>
-                <label class="checkbox-label">
+                <label class="<?php echo $tname; ?>-label">
                     <input
-                            type="checkbox"
+                            type="<?php echo $tname; ?>"
                             name="<?php echo htmlspecialchars($name); ?>[]"
                             value="<?php echo htmlspecialchars($value); ?>"
                         <?php echo $checked; ?>
