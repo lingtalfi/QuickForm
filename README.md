@@ -18,7 +18,7 @@ Table of contents
 - [Using fieldsets](#using-fieldsets)
 - [Adding placeholders](#adding-placeholders)
 - [Adding constraints](#adding-constraints)
-- [Adding enctype=multipart/form-data](#adding-enctype-multipart-form-data)
+- [Adding enctype=multipart/form-data](#adding-enctypemultipartform-data)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
 - [Displaying only the first constraint error message](#displaying-only-the-first-constraint-error-message)
