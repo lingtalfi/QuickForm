@@ -39,10 +39,11 @@ class LingControlFactory implements ControlFactoryInterface
             case 'file':
                 // http://www.w3schools.com/tags/att_input_accept.asp
                 $htmlArgs = (array_key_exists(0, $args)) ? $args[0] : [];
+                $multiple = (in_array('multiple', $htmlArgs, true)) ? '[]' : '';
                 ?>
                 <input
                         type="file"
-                        name="<?php echo htmlspecialchars($name); ?>"
+                        name="<?php echo htmlspecialchars($name) . $multiple; ?>"
                         value="<?php echo htmlspecialchars($c->getValue()); ?>"
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
