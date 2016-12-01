@@ -36,6 +36,18 @@ class LingControlFactory implements ControlFactoryInterface
                 >
                 <?php
                 break;
+            case 'file':
+                // http://www.w3schools.com/tags/att_input_accept.asp
+                $htmlArgs = (array_key_exists(0, $args)) ? $args[0] : [];
+                ?>
+                <input
+                        type="file"
+                        name="<?php echo htmlspecialchars($name); ?>"
+                        value="<?php echo htmlspecialchars($c->getValue()); ?>"
+                    <?php echo StringTool::htmlAttributes($htmlArgs); ?>
+                >
+                <?php
+                break;
             case 'checkboxList':
             case 'radioList':
                 $args = $c->getTypeArgs();

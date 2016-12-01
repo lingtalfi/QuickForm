@@ -23,6 +23,7 @@ class QuickForm
     public $displayForm;
     public $displayNothing;
     public $messages;
+    public $multipart; // bool=false, set this to true when your form contains an input type=file
 
 
     private $controls;
@@ -44,6 +45,7 @@ class QuickForm
         $this->controlErrorLocation = "local";
         $this->title = null;
         $this->header = null;
+        $this->multipart = false;
         $this->allowMultipleErrorsPerControl = true;
         $this->displayForm = true;
         $this->displayNothing = false;
@@ -235,8 +237,10 @@ class QuickForm
                 <?php endif; ?>
 
 
-                <?php if (true === $this->displayForm): ?>
-                    <form class="form" method="post" action="" id="<?php echo $formId; ?>">
+                <?php if (true === $this->displayForm):
+                    $multi = (true === $this->multipart) ? ' enctype="multipart/form-data"' : '';
+                    ?>
+                    <form class="form" method="post" action="" id="<?php echo $formId; ?>" <?php echo $multi; ?>>
                         <?php
 
 

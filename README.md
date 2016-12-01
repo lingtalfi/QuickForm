@@ -18,6 +18,7 @@ Table of contents
 - [Using fieldsets](#using-fieldsets)
 - [Adding placeholders](#adding-placeholders)
 - [Adding constraints](#adding-constraints)
+- [Adding enctype=multipart/form-data](#adding-enctype-multipart-form-data)
 - [Moving constraints messages to the top](#moving-constraints-messages-to-the-top)
 - [Adding multiple constraints](#adding-multiple-constraints)
 - [Displaying only the first constraint error message](#displaying-only-the-first-constraint-error-message)
@@ -243,6 +244,37 @@ $form->play();
 
 
 
+Adding enctype=multipart/form-data
+===============================================
+
+
+```php
+<?php
+
+
+use QuickForm\QuickForm;
+
+
+require "bigbang.php";
+
+
+?>
+    <link rel="stylesheet" href="quickform.css">
+<?php
+$form = new QuickForm();
+$form->multipart = true; // we use an input of type file
+$form->title = "Form";
+$form->addControl('photos')->type('file', [
+    'accept' => 'image/*',
+    'multiple', // accept multiple images
+]);
+
+
+$form->play();
+```
+
+
+
 
 
 
@@ -357,7 +389,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![Screen Shot 2016-12-01 at 13.22.13.png](https://s19.postimg.org/p09l7lzhf/Screen_Shot_2016_12_01_at_13_22_13.png)](https://postimg.org/image/ffpykqa5b/)
+[![types.png](https://s19.postimg.org/ywf9kzun7/types.png)](https://postimg.org/image/b5fw2vufz/)
 
 
 The code below showcases all the available control types as of today. 
@@ -774,6 +806,11 @@ Dependencies
  
 History Log
 ------------------
+    
+- 3.8.0 -- 2016-12-01
+
+    - add file type
+    - add multipart property for enctype=multipart/form-data
     
 - 3.7.0 -- 2016-12-01
 
