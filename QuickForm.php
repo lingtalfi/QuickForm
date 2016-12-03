@@ -76,12 +76,12 @@ class QuickForm
          * The msg adds precision to the result.
          */
         $this->formTreatmentFunc = function (array $formattedValue, &$msg) {
-            $msg = 'form data have been successfully treated';
             return true;
         };
 
         $this->messages = [
             'formHasControlErrors' => 'The form has the following errors, please fix them and resubmit the form',
+            'formSubmittedOk' => 'The form data have been successfully treated',
             'submit' => 'Submit', // submit btn value
             'formNotDisplayed' => 'Oops, there was a problem with the form',
         ];
@@ -208,6 +208,14 @@ class QuickForm
             if (false === $atLeastOneControlError) {
                 $formTreatmentMsg = null;
                 $formTreatmentIsSuccess = (bool)call_user_func_array($this->formTreatmentFunc, [$formattedValues, &$formTreatmentMsg]);
+                if (null === $formTreatmentMsg) {
+                    if (true === $formTreatmentIsSuccess) {
+                        $formTreatmentMsg = $this->messages['formSubmittedOk'];
+                    } else {
+                        $formTreatmentMsg = $this->messages['formHasControlErrors'];
+                    }
+                }
+
             }
 
 
