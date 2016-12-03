@@ -33,6 +33,7 @@ class InertControlFactory implements ControlFactoryInterface
 
         switch ($type) {
             case 'button':
+                $c->markAsFake();
                 $label = $args[0];
                 $htmlAttr = (array_key_exists(1, $args)) ? $args[1] : [];
                 ?>

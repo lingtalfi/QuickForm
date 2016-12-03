@@ -864,6 +864,11 @@ Dependencies
 History Log
 ------------------
 
+- 3.12.0 -- 2016-12-03
+
+    - add isFake method to controls so that they don't waste the formattedValues array
+    
+    
 - 3.11.0 -- 2016-12-03
 
     - add MagicControlFactory with checkUncheckAll type

@@ -160,17 +160,18 @@ class QuickForm
             //          an array of phpItems, as defined in QuickForm/Tool/PhpFileExploder.
             //          This way, the files can also be subject to validation
 
-            $controlsNames = array_keys($this->controls);
             $formattedValues = [];
-            foreach ($controlsNames as $name) {
-                $v = null;
-                if (array_key_exists($name, $_POST)) {
-                    $v = $_POST[$name];
-                } elseif (array_key_exists($name, $_FILES)) {
-                    $v = PhpFileExploder::explode($_FILES[$name], $this->stopIfFileIsNotUploadedViaHttp);
+            foreach ($this->controls as $name => $c) {
+                if (false === $c->isFake()) {
+                    $v = null;
+                    if (array_key_exists($name, $_POST)) {
+                        $v = $_POST[$name];
+                    } elseif (array_key_exists($name, $_FILES)) {
+                        $v = PhpFileExploder::explode($_FILES[$name], $this->stopIfFileIsNotUploadedViaHttp);
+                    }
+                    $formattedValues[$name] = $v;
+                    $this->controls[$name]->value($v);
                 }
-                $formattedValues[$name] = $v;
-                $this->controls[$name]->value($v);
             }
 
 

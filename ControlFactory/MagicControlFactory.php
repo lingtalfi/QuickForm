@@ -38,6 +38,7 @@ class MagicControlFactory implements ControlFactoryInterface
              * and when clicked, they effectively check all or uncheck all the checkboxes of a given target control.
              */
             case 'checkUncheckAll':
+                $c->markAsFake();
                 $targetName = $args[0];
                 $checkAllLabel = (array_key_exists(1, $args)) ? $args[1] : 'Check all';
                 $uncheckAllLabel = (array_key_exists(2, $args)) ? $args[2] : 'Uncheck all';
