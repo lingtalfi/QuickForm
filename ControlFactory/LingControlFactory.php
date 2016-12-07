@@ -19,6 +19,7 @@ class LingControlFactory implements ControlFactoryInterface
         switch ($type) {
             case 'text':
             case 'hidden':
+            case 'password':
                 $placeholder = null;
                 if (array_key_exists(0, $args)) {
                     if (is_string($args[0])) {

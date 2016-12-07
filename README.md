@@ -391,7 +391,7 @@ $form->play();
 
 Using different form types
 ===============================================
-[![types.png](https://s19.postimg.org/6vt914elf/types.png)](https://postimg.org/image/fe2p5gl3z/)
+[![types.png](https://s19.postimg.org/7jswskyjn/types.png)](https://postimg.org/image/yue80i1gf/)
 
 
 The code below showcases all the available control types as of today. 
@@ -864,6 +864,10 @@ Dependencies
 History Log
 ------------------
 
+- 3.15.0 -- 2016-12-07
+
+    - add password type
+    
 - 3.14.1 -- 2016-12-05
 
     - fix checkbox boolean control value
