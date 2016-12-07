@@ -864,6 +864,10 @@ Dependencies
 History Log
 ------------------
 
+- 3.17.0 -- 2016-12-07
+
+    - validationTranslateFunc now accepts the name of the control as the second parameter
+    
 - 3.16.0 -- 2016-12-07
 
     - controlErrorLocation can now be bottom too

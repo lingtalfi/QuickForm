@@ -187,7 +187,7 @@ class QuickForm
                         }
                         $atLeastOneControlError = true;
                         if (is_string($res)) {
-                            $errMsg = call_user_func($this->validationTranslateFunc, $res);
+                            $errMsg = call_user_func($this->validationTranslateFunc, $res, $columnName);
                         } else {
                             $err = $res[0];
                             $tags = $res[1];
