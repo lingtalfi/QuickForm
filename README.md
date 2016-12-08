@@ -864,6 +864,11 @@ Dependencies
 History Log
 ------------------
 
+- 3.18.0 -- 2016-12-07
+
+    - input of type text now accepts any html attribute
+    
+    
 - 3.17.0 -- 2016-12-07
 
     - validationTranslateFunc now accepts the name of the control as the second parameter
