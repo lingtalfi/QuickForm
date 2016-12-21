@@ -864,6 +864,12 @@ Dependencies
 History Log
 ------------------
 
+
+- 3.19.0 -- 2016-12-21
+
+    - add hint to controls
+    
+    
 - 3.18.0 -- 2016-12-07
 
     - input of type text now accepts any html attribute

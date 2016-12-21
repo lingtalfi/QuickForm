@@ -394,6 +394,12 @@ class QuickForm
                 <?php $this->displayControl($name, $c, $this); ?>
             </div>
         </div>
+        <?php if (null !== ($hint = $c->getHint())): ?>
+        <div class="row">
+            <span class="label"></span>
+            <div class="control"><?php echo $hint; ?></div>
+        </div>
+    <?php endif; ?>
         <?php
         if ('local' === $this->controlErrorLocation):
             $errors = $c->getErrorMessages();
