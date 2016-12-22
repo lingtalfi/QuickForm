@@ -26,6 +26,22 @@ class MagicControlFactory implements ControlFactoryInterface
     //--------------------------------------------
     //
     //--------------------------------------------
+    public function prepareControl($name, QuickFormControl $c)
+    {
+        $canHandle = true;
+        $type = $c->getType();
+        switch ($type) {
+            case 'checkUncheckAll':
+                $c->markAsFake();
+                break;
+            default:
+                $canHandle = false;
+                break;
+        }
+        return $canHandle;
+    }
+
+
     public function displayControl($name, QuickFormControl $c, QuickForm $f)
     {
         $canHandle = true;
@@ -38,7 +54,6 @@ class MagicControlFactory implements ControlFactoryInterface
              * and when clicked, they effectively check all or uncheck all the checkboxes of a given target control.
              */
             case 'checkUncheckAll':
-                $c->markAsFake();
                 $targetName = $args[0];
                 $checkAllLabel = (array_key_exists(1, $args)) ? $args[1] : 'Check all';
                 $uncheckAllLabel = (array_key_exists(2, $args)) ? $args[2] : 'Uncheck all';

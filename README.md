@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 4.0.0 -- 2016-12-22
+
+    - add ControlFactoryInterface.prepareControl
+    
 - 3.21.0 -- 2016-12-22
 
     - add html args to LingControlFactory.message
