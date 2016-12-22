@@ -421,7 +421,7 @@ class LingControlFactory implements ControlFactoryInterface
                 <textarea
                         name="<?php echo htmlspecialchars($name); ?>"
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
-                ><?php echo $c->getValue(); ?></textarea>
+                ><?php echo htmlspecialchars($c->getValue()); ?></textarea>
                 <?php
                 break;
             default:
