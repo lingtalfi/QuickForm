@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 3.20.0 -- 2016-12-21
+
+    - add inertSelect to inertFactory
+
 - 3.19.0 -- 2016-12-21
 
     - add hint to controls

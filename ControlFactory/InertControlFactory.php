@@ -40,6 +40,18 @@ class InertControlFactory implements ControlFactoryInterface
                 <button <?php echo StringTool::htmlAttributes($htmlAttr); ?>><?php echo $label; ?></button>
                 <?php
                 break;
+            case 'inertSelect':
+                $c->markAsFake();
+                $items = $args[0];
+                $htmlAttr = (array_key_exists(1, $args)) ? $args[1] : [];
+                ?>
+                <select <?php echo StringTool::htmlAttributes($htmlAttr); ?>>
+                    <?php foreach ($items as $val => $label): ?>
+                        <option value="<?php echo htmlspecialchars($val); ?>"><?php echo $label; ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <?php
+                break;
             default:
                 $canHandle = false;
                 break;
