@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 4.1.0 -- 2016-12-22
+
+    - add QuickFormValidator.regex constraint 
+
 - 4.0.0 -- 2016-12-22
 
     - add ControlFactoryInterface.prepareControl
