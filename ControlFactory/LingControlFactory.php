@@ -388,9 +388,11 @@ class LingControlFactory implements ControlFactoryInterface
                 <?php
                 break;
             case 'message':
+                $htmlArgs = (array_key_exists(0, $args)) ? $args[0] : [];
                 ?>
                 <textarea
                         name="<?php echo htmlspecialchars($name); ?>"
+                        <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 ><?php echo $c->getValue(); ?></textarea>
                 <?php
                 break;

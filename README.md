@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 3.21.0 -- 2016-12-22
+
+    - add html args to LingControlFactory.message
+    
 - 3.20.0 -- 2016-12-21
 
     - add inertSelect to inertFactory
