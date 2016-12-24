@@ -467,7 +467,7 @@ $form->play();
 
 Using MagicControlFactory types
 ===============================================
-[![magic.png](https://s19.postimg.org/cqzr8fu1v/magic.png)](https://postimg.org/image/if61zbye7/)
+[![magic.png](https://s19.postimg.org/sx31l8dsz/magic.png)](https://postimg.org/image/43thkkusf/)
 
 
 The code below shows how to use the MagicControlFactory factory, which provides javascript enhanced controls.
@@ -501,7 +501,7 @@ $form->addControl('options')->type('checkboxList', [
     'option3' => "Option 3",
 ])->addConstraint('minChecked', 1);
 $form->addControl('check_all')->type("checkUncheckAll", "options", "Check all", "Uncheck all")->label("");
-
+$form->addControl('numberList')->type("multipleInput")->label("List of numbers");
 
 $form->play();
 ```
@@ -864,6 +864,10 @@ Dependencies
 History Log
 ------------------
 
+
+- 4.4.0 -- 2016-12-24
+
+    - MagicControlFactory add multipleInput
 
 - 4.3.0 -- 2016-12-24
 
