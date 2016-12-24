@@ -865,6 +865,10 @@ History Log
 ------------------
 
 
+- 4.3.0 -- 2016-12-24
+
+    - LingControlFactory.text, now has focus facility
+    
 - 4.2.0 -- 2016-12-22
 
     - LingControlFactory.message, now uses htmlspecialchars 

@@ -49,6 +49,7 @@ class LingControlFactory implements ControlFactoryInterface
             case 'hidden':
             case 'password':
                 $placeholder = null;
+                $focus = false;
                 $htmlArgs = [];
                 if (array_key_exists(0, $args)) {
                     if (is_string($args[0])) {
@@ -57,7 +58,10 @@ class LingControlFactory implements ControlFactoryInterface
                     } elseif (is_array($args[0])) {
                         $htmlArgs = $args[0];
                     }
-
+                    if (array_key_exists('focus', $htmlArgs)) {
+                        unset($htmlArgs['focus']);
+                        $focus = true;
+                    }
                 }
 
                 $pl = (null !== $placeholder) ? ' placeholder="' . htmlspecialchars($placeholder) . '"' : '';
@@ -71,6 +75,15 @@ class LingControlFactory implements ControlFactoryInterface
                     <?php echo StringTool::htmlAttributes($htmlArgs); ?>
                 >
                 <?php
+                if (true === $focus):
+                    ?>
+                    <script>
+                        var control = document.getElementById('<?php echo QuickForm::getControlCssId($f, $name); ?>');
+                        control.querySelector('input').focus();
+                    </script>
+                    <?php
+                endif;
+
                 break;
             case 'file':
                 // http://www.w3schools.com/tags/att_input_accept.asp
