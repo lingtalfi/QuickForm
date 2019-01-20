@@ -7,6 +7,18 @@ QuickForm
 Quick and dirty form helper class in php.
 
 
+QuickForm is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+Install
+==========
+Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
+```bash
+uni import QuickForm
+```
+
+
+
 
 Table of contents
 ---------------------
