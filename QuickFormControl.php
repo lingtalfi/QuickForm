@@ -1,6 +1,6 @@
 <?php
 
-namespace QuickForm;
+namespace Ling\QuickForm;
 
 
 class QuickFormControl

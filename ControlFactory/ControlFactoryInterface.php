@@ -1,11 +1,11 @@
 <?php
 
 
-namespace QuickForm\ControlFactory;
+namespace Ling\QuickForm\ControlFactory;
 
 
-use QuickForm\QuickForm;
-use QuickForm\QuickFormControl;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickForm\QuickFormControl;
 
 interface ControlFactoryInterface
 {

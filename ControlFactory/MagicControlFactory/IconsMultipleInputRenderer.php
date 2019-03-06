@@ -1,11 +1,11 @@
 <?php
 
 
-namespace QuickForm\ControlFactory\MagicControlFactory;
+namespace Ling\QuickForm\ControlFactory\MagicControlFactory;
 
 
-use Icons\Icons;
-use Icons\IconsFactory;
+use Ling\Icons\Icons;
+use Ling\Icons\IconsFactory;
 
 class IconsMultipleInputRenderer implements MagicControlRendererInterface
 {

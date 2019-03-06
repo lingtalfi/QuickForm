@@ -1,11 +1,11 @@
 <?php
 
-namespace QuickForm\ControlFactory;
+namespace Ling\QuickForm\ControlFactory;
 
-use Bat\StringTool;
-use QuickForm\QuickForm;
-use QuickForm\QuickFormControl;
-use QuickPdo\QuickPdo;
+use Ling\Bat\StringTool;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickForm\QuickFormControl;
+use Ling\QuickPdo\QuickPdo;
 
 class LingControlFactory implements ControlFactoryInterface
 {

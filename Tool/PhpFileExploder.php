@@ -1,9 +1,9 @@
 <?php
 
 
-namespace QuickForm\Tool;
+namespace Ling\QuickForm\Tool;
 
-use QuickForm\Exception\QuickFormException;
+use Ling\QuickForm\Exception\QuickFormException;
 
 class PhpFileExploder
 {

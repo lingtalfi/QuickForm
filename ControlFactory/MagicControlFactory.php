@@ -1,12 +1,12 @@
 <?php
 
-namespace QuickForm\ControlFactory;
+namespace Ling\QuickForm\ControlFactory;
 
 
-use QuickForm\ControlFactory\MagicControlFactory\MagicControlRendererInterface;
-use QuickForm\ControlFactory\MagicControlFactory\MultipleInputRenderer;
-use QuickForm\QuickForm;
-use QuickForm\QuickFormControl;
+use Ling\QuickForm\ControlFactory\MagicControlFactory\MagicControlRendererInterface;
+use Ling\QuickForm\ControlFactory\MagicControlFactory\MultipleInputRenderer;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickForm\QuickFormControl;
 
 
 /**

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace QuickForm\ControlFactory\MagicControlFactory;
+namespace Ling\QuickForm\ControlFactory\MagicControlFactory;
 
 
 class MultipleInputRenderer implements MagicControlRendererInterface

@@ -14,7 +14,7 @@ Install
 ==========
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
-uni import QuickForm
+uni import Ling/QuickForm
 ```
 
 
@@ -74,7 +74,7 @@ Simplest example
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -101,7 +101,7 @@ Removing the title
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -134,7 +134,7 @@ It helps adding information about the purpose of the form.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -172,7 +172,7 @@ defined during the call to the addFieldset method).
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -209,7 +209,7 @@ The example below show how to create such placeholders.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -238,7 +238,7 @@ Adding constraints
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -266,7 +266,7 @@ Adding enctype=multipart/form-data
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 
 require "bigbang.php";
@@ -307,7 +307,7 @@ top of the form, or even at the bottom of the form. See the example below:
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -339,7 +339,7 @@ Adding multiple constraints
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -376,7 +376,7 @@ the first message. The code below does that.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -413,8 +413,8 @@ The code below showcases all the available control types as of today.
 <?php
 
 
-use QuickForm\QuickForm;
-use QuickPdo\QuickPdo;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickPdo\QuickPdo;
 
 require "bigbang.php";
 
@@ -489,9 +489,9 @@ The code below shows how to use the MagicControlFactory factory, which provides 
 <?php
 
 
-use QuickForm\ControlFactory\MagicControlFactory;
-use QuickForm\QuickForm;
-use QuickPdo\QuickPdo;
+use Ling\QuickForm\ControlFactory\MagicControlFactory;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickPdo\QuickPdo;
 
 
 /**
@@ -534,8 +534,8 @@ Use the labels array to embellish the labels in your form.
 <?php
 
 
-use QuickForm\QuickForm;
-use QuickPdo\QuickPdo;
+use Ling\QuickForm\QuickForm;
+use Ling\QuickPdo\QuickPdo;
 
 require "bigbang.php";
 
@@ -600,7 +600,7 @@ This will allow you to change, amongst other things, the submit button's text.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -651,7 +651,7 @@ The example below uses the defaultValues property of the form object.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -685,7 +685,7 @@ The example below uses the value method of the control objects.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -735,7 +735,7 @@ Here is the life cycle of the value in a control:
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -780,7 +780,7 @@ Below is an example of how you can translate the constraints errors.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 
@@ -828,7 +828,7 @@ Below is an example of what was just discussed.
 <?php
 
 
-use QuickForm\QuickForm;
+use Ling\QuickForm\QuickForm;
 
 require "bigbang.php";
 

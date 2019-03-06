@@ -1,12 +1,12 @@
 <?php
 
-namespace QuickForm;
+namespace Ling\QuickForm;
 
 
-use QuickForm\ControlFactory\ControlFactoryInterface;
-use QuickForm\ControlFactory\LingControlFactory;
-use QuickForm\Tool\PhpFileExploder;
-use QuickPdo\QuickPdo;
+use Ling\QuickForm\ControlFactory\ControlFactoryInterface;
+use Ling\QuickForm\ControlFactory\LingControlFactory;
+use Ling\QuickForm\Tool\PhpFileExploder;
+use Ling\QuickPdo\QuickPdo;
 
 class QuickForm
 {

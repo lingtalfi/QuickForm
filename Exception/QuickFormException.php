@@ -1,7 +1,7 @@
 <?php
 
 
-namespace QuickForm\Exception;
+namespace Ling\QuickForm\Exception;
 
 
 class QuickFormException extends \Exception
